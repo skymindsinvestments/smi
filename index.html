@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkyMinds Investments CC — Business development, economic advisory, accounting, investment planning and research based in Windhoek, Namibia.">
+  <title>SkyMinds Investments CC</title>
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    /* -------------------- VARIABLES -------------------- */
+    :root{
+      --bg: #f8f9fc;
+      --primary: #0d0f29; /* navy */
+      --accent: #d4af37; /* gold */
+      --card: #ffffff;
+      --muted: #6b7280;
+      --maxw: 1100px;
+      --radius: 10px;
+    }
+      /* -------------------- SMOOTH SCROLL -------------------- */
+    html {
+      scroll-behavior: smooth;
+    }
+    section {
+  scroll-margin-top: 110px; 
+}
+    /* -------------------- RESET & BASE -------------------- */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+    /* Skip link */
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{left:16px;top:16px;width:auto;height:auto;background:#fff;padding:8px;border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,0.12)}
+
+    h1,h2,h3{margin:0;font-weight:700}
+
+    /* -------------------- HEADER / NAV -------------------- */
+    header{
+      width:100%;background:var(--primary);color:#fff;padding:14px 28px;position:fixed;top:0;left:0;z-index:1200;box-shadow:0 6px 18px rgba(2,6,23,0.2);
+      display:flex;align-items:center;justify-content:space-between;min-height:96px;gap:12px
+    }
+
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:72px;object-fit:contain}
+    .brand .brand-text{font-size:18px;line-height:1;color:#fff}
+    .brand .brand-sub{font-weight:500;color:rgba(255,255,255,0.85);font-size:13px}
+
+    nav{display:flex;gap:20px;align-items:center}
+    nav a{color:#fff;font-weight:600;padding:8px 6px;border-radius:6px}
+    nav a:hover,nav a:focus{background:rgba(255,255,255,0.06)}
+
+    .menu-btn{display:none;background:none;border:none;color:#fff;font-size:28px;cursor:pointer}
+
+    /* Mobile nav panel */
+    #mobileNav{display:none;position:fixed;inset:0;background:linear-gradient(180deg, rgba(13,15,41,0.98), rgba(13,15,41,0.98));padding:84px 24px 24px;z-index:1199}
+    #mobileNav a{display:block;padding:14px 8px;border-bottom:1px solid rgba(255,255,255,0.04);color:#fff}
+
+    /* -------------------- HERO -------------------- */
+    
+      .hero{
+      margin-top:108px; /* header height + spacing */
+      background-image:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;background-position:center;padding:120px 0;color:#fff;position:relative;overflow:hidden
+    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,32,58,0.6), rgba(4,32,58,0.6));}
+    .hero .container{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+    .hero h1{font-size:44px}
+    .hero p{max-width:680px;font-size:18px}
+
+    .btn{display:inline-block;padding:12px 28px;background:var(--accent);color:#071123;font-weight:700;border-radius:8px;box-shadow:0 8px 18px rgba(19,17,13,0.08)}
+    .btn:hover{transform:translateY(-2px)}
+
+    /* -------------------- SECTIONS -------------------- */
+    section{padding:64px 0}
+    section .container{padding:0}
+
+    h2{font-size:28px;margin-bottom:12px}
+    p.lead{color:var(--muted);max-width:760px}
+
+    /* Services grid */
+    .service-grid{display:grid;gap:24px;margin-top:22px;grid-template-columns:repeat(3,1fr)}
+    .service-box{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:0 6px 22px rgba(8,15,30,0.06)}
+    .service-box h3{font-size:18px;margin-bottom:10px}
+    .service-box ul{padding-left:18px;margin:0;color:var(--muted)}
+
+    /* Features */
+    .features-grid{display:grid;gap:20px;grid-template-columns:repeat(4,1fr);margin-top:16px}
+    .feature-box{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(8,15,30,0.04)}
+    .feature-box h3{font-size:16px}
+
+    /* About */
+    .about p{color:var(--muted);max-width:900px}
+
+    /* Contact area */
+    .contact-info{text-align:center;margin-bottom:20px;color:var(--muted)}
+    .contact-info a{color:var(--primary);text-decoration:underline}
+
+    form{max-width:720px;margin:0 auto;background:var(--card);padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(9,14,28,0.06)}
+    form input,form textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e9ef;margin-bottom:12px;font-size:15px}
+    form button{width:100%;padding:12px;border-radius:8px;border:none;background:var(--primary);color:#fff;font-weight:700}
+
+    /* Legal section */
+    .legal-section{background:var(--bg);padding:48px 0}
+    .legal-links{display:flex;justify-content:flex-end;gap:12px;margin-bottom:18px}
+    .btn-legal{background:var(--primary);color:var(--accent);padding:10px 16px;border-radius:8px;border:none;font-weight:700}
+
+    /* Modal */
+    .modal{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.7);z-index:2000;padding:48px 20px;overflow:auto}
+    .modal-content{max-width:920px;margin:32px auto;background:#04203a;border-radius:12px;padding:28px;color:#eef2f3;position:relative}
+    .modal h2{color:var(--accent);margin-bottom:12px}
+    .modal .modal-body{max-height:65vh;overflow:auto;padding-right:8px}
+    .close-btn{position:absolute;right:14px;top:12px;background:none;border:none;color:var(--accent);font-size:26px;cursor:pointer}
+    .modal-footer{text-align:right;margin-top:12px}
+    .modal-footer .btn{background:var(--primary);color:var(--accent);padding:10px 16px;border-radius:8px;border:none}
+
+    /* Footer */
+    footer{background:var(--primary);color:#fff;padding:18px 0;text-align:center;margin-top:26px}
+
+    /* -------------------- RESPONSIVE -------------------- */
+    @media (max-width:1100px){
+      .features-grid{grid-template-columns:repeat(2,1fr)}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:900px){
+      header{padding:12px 16px}
+      nav{display:none}
+      .menu-btn{display:block}
+      .brand img{height:56px}
+      .hero{padding:80px 0}
+      .hero h1{font-size:34px}
+      .service-grid{grid-template-columns:1fr}
+      .features-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:480px){
+      .brand .brand-text{font-size:15px}
+      .brand .brand-sub{display:none}
+    }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="brand container" style="justify-content:flex-start;align-items:center;">
+      <a href="#home" class="logo" aria-label="SkyMinds Investments home">
+        <img src="logo.png" alt="SkyMinds Investments logo" />
+      </a>
+      <div>
+        <div class="brand-text">SkyMinds Investments CC</div>
+        <div class="brand-sub">Business advisory • Economics • Investment planning</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation" class="container">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#why-choose-us">Why Choose Us</a>
+      <a href="#about">About</a>
+      <a href="#mission-values">Mission & Values</a>
+      <a href="#contact">Contact</a>
+      <a href="#" onclick="openTerms(event)">Terms & Conditions</a>
+      <a href="#" onclick="openPrivacy(event)">Privacy Policy</a>
+    </nav>
+
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div id="mobileNav" aria-hidden="true">
+    <a href="#home" onclick="closeMobile()">Home</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#why-choose-us" onclick="closeMobile()">Why Choose Us</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#mission-values" onclick="closeMobile()">Mission & Values</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+    <a href="#" onclick="openTerms(event);closeMobile();">Terms & Conditions</a>
+    <a href="#" onclick="openPrivacy(event);closeMobile();">Privacy Policy</a>
+  </div>
+
+  <!-- HERO -->
+  <main id="main">
+    <section class="hero" id="home" role="region" aria-labelledby="hero-heading">
+      <div class="container">
+        <h1 id="hero-heading">SkyMinds Investments CC</h1>
+        <p>Your partner in business solutions, consulting, economics, investment planning and growth strategies across Namibia.</p>
+        <a class="btn" href="#contact">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services container" aria-labelledby="services-heading">
+      <h2 id="services-heading">Our Services</h2>
+      <p class="lead">Comprehensive solutions for businesses, finance, and strategic growth — tailored for entrepreneurs, SMEs and corporates in Namibia.</p>
+
+      <div class="service-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+
+        <div class="service-box">
+          <h3>Economics & Business Analysis</h3>
+          <ul>
+            <li>Market & Industry Analysis</li>
+            <li>Competitor Research Reports</li>
+            <li>Feasibility Studies & Project Appraisals</li>
+            <li>Business Performance Insights (Excel / Sheets)</li>
+            <li>Financial Forecasting & Budgeting</li>
+            <li>Scenario Planning & Sensitivity Analysis</li>
+            <li>Investment & Funding Advisory</li>
+          </ul>
+        </div>
+
+        <div class="service-box">
+          <h3>Tax & Regulatory Advisory</h3>
+          <ul>
+            <li>Tax Planning Guidance</li>
+            <li>VAT / Tax Registration Support</li>
+            <li>Tax Clearance & Compliance Assistance</li>
+            <li>Payroll Tax Guidance</li>
+            <li>Small Business Incentives & Reliefs</li>
+          </ul>
+        </div>
+
+        <div class="service-box">
+          <h3>Business Registration & Compliance</h3>
+          <ul>
+            <li>Business Name Reservation</li>
+            <li>Company / CC Registration Guidance</li>
+            <li>Tax Registration (TIN, VAT)</li>
+            <li>Annual Returns & Licensing Support</li>
+          </ul>
+        </div>
+
+        <div class="service-box">
+          <h3>Business Advisory & Consultancy</h3>
+          <ul>
+            <li>Business Plan Writing & Review</li>
+            <li>Startup Guidance & Roadmaps</li>
+            <li>Strategic Planning & Goal Setting</li>
+            <li>Process Improvement & Risk Identification</li>
+            <li>Turnaround & Growth Strategy</li>
+          </ul>
+        </div>
+
+        <div class="service-box">
+          <h3>Bookkeeping & Financial Support</h3>
+          <ul>
+            <li>Bookkeeping Setup (QuickBooks, Xero, Excel)</li>
+            <li>Recording Income & Expenses</li>
+            <li>Bank Reconciliation & Payroll Setup</li>
+            <li>Basic Financial Statements Preparation</li>
+          </ul>
+        </div>
+
+        <div class="service-box">
+          <h3>Training & Workshops</h3>
+          <ul>
+            <li>Financial Literacy for Entrepreneurs</li>
+            <li>Basic Accounting & Bookkeeping Training</li>
+            <li>How to Read Financial Statements</li>
+            <li>Business Startup Workshops</li>
+          </ul>
+        </div>
+
+        <div class="service-box">
+          <h3>Research & Reports</h3>
+          <ul>
+            <li>Market Research & Data Collection</li>
+            <li>Economic Trend Reports</li>
+            <li>Mini Investment & Feasibility Reports</li>
+          </ul>
+        </div>
+
+        <div class="service-box">
+          <h3>Optional / Advanced Services</h3>
+          <ul>
+            <li>Financial Modelling & Forecasting</li>
+            <li>Investment Portfolio Analysis</li>
+            <li>Business Valuation Guidance</li>
+            <li>Sector-Specific Economic Analysis</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why-choose-us" class="why-choose-us container" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why Choose Us</h2>
+      <p class="lead">Tailored strategies, practical recommendations and measurable results — delivered with integrity and local market expertise.</p>
+
+      <div class="features-grid">
+        <div class="feature-box"><h3>Expertise & Knowledge</h3><p style="color:var(--muted);margin-top:8px">Professional experience in economics, business advisory and financial planning.</p></div>
+        <div class="feature-box"><h3>Personalized Solutions</h3><p style="color:var(--muted);margin-top:8px">Strategies shaped around your unique goals and constraints.</p></div>
+        <div class="feature-box"><h3>Reliable & Trustworthy</h3><p style="color:var(--muted);margin-top:8px">Transparent processes and ethical practices at every step.</p></div>
+        <div class="feature-box"><h3>Results Driven</h3><p style="color:var(--muted);margin-top:8px">Actionable advice focused on measurable outcomes.</p></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about container" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Us</h2>
+      <p>SkyMinds Investments CC is a Namibian company specialising in business development, economic advisory, accounting, investment planning and research. We provide strategic support to individuals, SMEs and corporates aiming for sustainable long-term growth.</p>
+      <p class="lead">We combine deep market knowledge with analytical rigor to support decision-making, optimise financial performance and identify investment opportunities. Our mission is to help clients navigate complex economic environments, achieve long-term profitability and create lasting value.</p>
+    </section>
+<!-- MISSION & VALUES -->
+<section id="mission-values" class="mission-values container" aria-labelledby="mission-heading">
+  <h2 id="mission-heading">Our Mission & Values</h2>
+  <p class="lead">At SkyMinds Investments CC, our mission is to empower businesses and individuals with strategic insights, sound financial planning, and sustainable growth solutions. We are committed to excellence, transparency, and ethical practices in every engagement.</p>
+
+  <div class="features-grid">
+    <div class="feature-box">
+      <h3>Integrity</h3>
+      <p style="color:var(--muted);margin-top:8px;">We conduct our business with honesty, transparency, and ethical responsibility.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Excellence</h3>
+      <p style="color:var(--muted);margin-top:8px;">Delivering high-quality, professional services that exceed client expectations.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Innovation</h3>
+      <p style="color:var(--muted);margin-top:8px;">Providing creative solutions that help clients adapt and grow in a dynamic market.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Client Focus</h3>
+      <p style="color:var(--muted);margin-top:8px;">Tailoring services to meet the unique needs and goals of each client.</p>
+    </div>
+  </div>
+</section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact container" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Us</h2>
+
+      <div class="contact-info">
+        <p><strong>Location:</strong> Windhoek, Namibia</p>
+        <p><strong>Email:</strong> <a href="mailto:skymindsinvestments@gmail.com">skymindsinvestments@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+264852347158">+(264) 85 234 7158</a></p>
+      </div>
+
+      <form id="contactForm" onsubmit="sendForm(event)" aria-label="Contact form">
+        <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
+        <input type="email" name="email" placeholder="Email Address" required aria-label="Your email">
+        <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Your message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+    </section>
+    <!-- LEGAL (TERMS & PRIVACY) -->
+<section id="legal" class="legal-section container" aria-labelledby="legal-heading">
+  <h2 id="legal-heading" style="display:none">Legal - Terms & Privacy</h2>
+
+  <div class="legal-links" role="group" aria-label="Legal links">
+    <button class="btn-legal" id="btnOpenTerms" onclick="openTerms(event)">View Terms & Conditions</button>
+    <button class="btn-legal" id="btnOpenPrivacy" onclick="openPrivacy(event)">View Privacy Policy</button>
+  </div>
+
+  <!-- TERMS MODAL -->
+  <div id="termsModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="terms-title">
+    <div class="modal-content" role="document" tabindex="-1">
+      <button class="close-btn" aria-label="Close terms" onclick="closeTerms()">&times;</button>
+      <h2 id="terms-title">Terms &amp; Conditions</h2>
+
+      <div class="modal-body">
+        <p><strong>1. Introduction</strong><br>
+        These Terms and Conditions (“Terms”) govern all professional services provided by SkyMinds Investments CC, a Close Corporation registered under the laws of the Republic of Namibia (“SkyMinds”, “the Company”, “we”, “our”). By accepting a quotation, proposal, invoice, or otherwise engaging SkyMinds in any capacity, the client (“the Client”, “you”, “your”) acknowledges and agrees to be bound by these Terms in full. SkyMinds is committed to delivering exceptional value through premium advisory, research, financial, investment, and procurement solutions. These Terms reflect our dedication to excellence, transparency, and professional integrity.</p>
+
+        <p><strong>2. Definitions</strong><br>
+        For the purpose of these Terms: <br>
+        • “Company” refers to SkyMinds Investments CC. <br>
+        • “Client” refers to any individual, business, or entity engaging the Company’s services. <br>
+        • “Services” include, but are not limited to, consulting, economic research, market analysis, investment advisory, financial planning, tax advisory, procurement, tender support, business registration, supply of goods, and all related offerings. <br>
+        • “Deliverables” refer to all documents, reports, designs, business plans, research, and materials produced by the Company. <br>
+        • “Agreement” refers to the accepted quotation, proposal, or engagement contract, together with these Terms.</p>
+
+        <p><strong>3. Scope of Services</strong><br>
+        SkyMinds shall provide Services professionally and in accordance with the specifications agreed upon in the accepted quotation or proposal. Any additional or altered services requested beyond the original scope shall require a written variation order or a new quotation, which may attract additional fees. SkyMinds reserves the right to decline any work that conflicts with its values, legal obligations, or professional standards.</p>
+
+        <p><strong>4. Professional Standards and Warranties</strong><br>
+        SkyMinds commits to performing all Services with high-quality research and analysis; professional discretion and confidentiality; timeliness and reliability; and expert-level economic and strategic insight. SkyMinds warrants that all Services will be carried out with due professional skill, care, and diligence in accordance with industry standards. No other warranties, express or implied, are provided. <em>Disclaimer:</em> SkyMinds does not guarantee specific financial outcomes or business results, as these depend on external factors beyond its control.</p>
+
+        <p><strong>5. Fees, Invoicing &amp; Payment Terms</strong><br>
+        <strong>5.1 Fees:</strong> All fees shall be quoted in writing. Unless otherwise indicated, prices are exclusive of VAT. <br>
+        <strong>5.2 Payment Terms:</strong> Invoices are payable within seven (7) calendar days of issue, unless otherwise agreed in writing. <br>
+        <strong>5.3 Deposits:</strong> For larger projects, a 50% deposit is required before commencement. Work begins only after proof of payment is received. <br>
+        <strong>5.4 Late Payments:</strong> Late or outstanding balances may accrue interest at a rate permissible under Namibian law. SkyMinds reserves the right to suspend services or withhold deliverables until payment obligations are met. <br>
+        <strong>5.5 Refund Policy:</strong> Due to the bespoke nature of consulting and professional services, payments are non-refundable once substantial work has commenced, except where SkyMinds materially fails to deliver the agreed-upon Services.</p>
+
+        <p><strong>6. Client Responsibilities</strong><br>
+        The Client agrees to provide accurate, complete, and timely information necessary for service delivery; respond promptly to requests for clarification or documentation; and exercise due care when making decisions based on SkyMinds’ advice or deliverables. SkyMinds shall not be liable for incomplete, delayed, or inaccurate work resulting from the Client’s failure to provide necessary information or cooperation.</p>
+
+        <p><strong>7. Confidentiality &amp; Data Protection</strong><br>
+        Both parties agree to maintain strict confidentiality regarding all business, financial, and personal information shared during the engagement. No confidential information shall be disclosed to third parties without prior written consent, except where required by law. SkyMinds adheres to professional standards of privacy, discretion, and ethical data handling. Any personal or business data collected shall be processed in compliance with Namibian data protection principles and used solely for purposes of providing the Services. This confidentiality obligation continues indefinitely, even after termination of the Agreement.</p>
+
+        <p><strong>8. Intellectual Property Rights</strong><br>
+        All Deliverables, including but not limited to business plans, reports, templates, and proprietary tools, remain the exclusive property of SkyMinds until full payment is received. Upon full settlement, the Client is granted a non-exclusive, non-transferable license to use the Deliverables for internal business purposes only. Drafts, background data, models, and proprietary methodologies remain the property of SkyMinds at all times. The Client may not resell, reproduce, or distribute Deliverables without written consent from SkyMinds.</p>
+
+        <p><strong>9. Limitation of Liability</strong><br>
+        While SkyMinds exercises due skill, care, and diligence: the Company shall not be liable for any indirect, incidental, or consequential losses arising from the use of its Services or Deliverables. Recommendations, analyses, and forecasts are based on professional judgment and available data but do not constitute guarantees of specific results. The Client assumes full responsibility for business decisions made using the Deliverables. The total liability of SkyMinds under this Agreement, whether in contract, tort, or otherwise, shall not exceed the total fees paid by the Client for the Services rendered.</p>
+
+        <p><strong>10. Non-Solicitation</strong><br>
+        The Client agrees not to solicit, recruit, or hire any SkyMinds employees, consultants, or contractors involved in the engagement for a period of twelve (12) months after completion, without prior written consent from SkyMinds.</p>
+
+        <p><strong>11. Termination of Services</strong><br>
+        Either party may terminate this Agreement with seven (7) days’ written notice. Upon termination: the Client shall pay for all work completed up to the termination date; all Deliverables remain the property of SkyMinds until full payment is received; SkyMinds may terminate immediately in cases of unethical conduct, fraudulent activity, or breach of these Terms; upon termination, both parties shall return or destroy any confidential materials belonging to the other.</p>
+
+        <p><strong>12. Dispute Resolution</strong><br>
+        In the event of a dispute, both parties agree to first attempt to resolve the matter amicably through negotiation. If unresolved, the dispute shall be referred to mediation, and if still unresolved, to arbitration in Windhoek, Namibia, under Namibian law. Court proceedings shall be considered only as a measure of last resort. All disputes shall fall under the exclusive jurisdiction of the courts of Windhoek, Republic of Namibia.</p>
+
+        <p><strong>13. Force Majeure</strong><br>
+        SkyMinds shall not be liable for any delay or failure to perform its obligations due to circumstances beyond its reasonable control, including but not limited to natural disasters, power outages, national emergencies, pandemics, or internet disruptions.</p>
+
+        <p><strong>14. Amendments</strong><br>
+        SkyMinds reserves the right to amend or update these Terms at any time. Updated versions will be provided upon request or issued with new engagements. Continued engagement constitutes acceptance of any revised Terms.</p>
+
+        <p><strong>15. Severability</strong><br>
+        If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+
+        <p><strong>16. Entire Agreement</strong><br>
+        These Terms constitute the entire agreement between SkyMinds Investments CC and the Client and supersede all prior discussions, proposals, or understandings unless otherwise agreed in writing and signed by both parties.</p>
+
+        <p><strong>17. Governing Law</strong><br>
+        This Agreement shall be governed by and interpreted in accordance with the laws of the Republic of Namibia.</p>
+
+        <p><strong>18. Acceptance of Terms</strong><br>
+        By engaging SkyMinds Investments CC, the Client confirms that they: have read and understood these Terms; agree to be bound by them in full; and accept all responsibilities outlined herein.</p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn" onclick="closeTerms()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY MODAL -->
+  <div id="privacyModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="privacy-title">
+    <div class="modal-content" role="document" tabindex="-1">
+      <button class="close-btn" aria-label="Close privacy" onclick="closePrivacy()">&times;</button>
+      <h2 id="privacy-title">Privacy Policy</h2>
+
+      <div class="modal-body">
+        <p><strong>Introduction</strong><br>
+        SkyMinds Investments CC ("we", "us", "our") values your privacy. This Privacy Policy explains how we collect, use, disclose, and protect personal information when you interact with us, request services or submit enquiries.</p>
+
+        <p><strong>Information We Collect</strong><br>
+        We may collect personal data you provide directly (e.g., name, email, phone number, company details) and project-specific information required to provide our Services. We may also collect technical data (e.g., IP address) for security and analytics when you interact with our website.</p>
+
+        <p><strong>How We Use Your Information</strong><br>
+        We use personal information to provide and manage services, communicate with you, prepare proposals and deliverables, process payments, and comply with legal obligations. We do not sell personal information to third parties.</p>
+
+        <p><strong>Sharing &amp; Disclosure</strong><br>
+        We may share personal data with trusted service providers who assist us (e.g., payment processors, accountants) or when required by law. We impose contractual and security obligations on third parties to protect the data.</p>
+
+        <p><strong>Data Retention</strong><br>
+        We retain personal information only as long as necessary to fulfil the purposes outlined in this Policy or as required by law. If you wish to request deletion, please contact us (details below).</p>
+
+        <p><strong>Your Rights</strong><br>
+        You have the right to request access to, correction of, or deletion of your personal information. You may also object to processing or request portability where applicable. To exercise these rights, contact us at <a href="mailto:skymindsinvestments@gmail.com">skymindsinvestments@gmail.com</a>.</p>
+
+        <p><strong>Security</strong><br>
+        We implement appropriate technical and organisational measures to safeguard personal data. However, no internet-based transmission is completely secure; we cannot guarantee absolute security of data transmitted to us.</p>
+
+        <p><strong>Children</strong><br>
+        Our services are not intended for children under 13. We do not knowingly collect personal information from children.</p>
+
+        <p><strong>Changes to this Policy</strong><br>
+        We may update this Privacy Policy from time to time. We will publish changes on our website or notify you when appropriate.</p>
+
+        <p><strong>Contact</strong><br>
+        For questions about privacy or to exercise your rights, contact: <a href="mailto:skymindsinvestments@gmail.com">skymindsinvestments@gmail.com</a>.</p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn" onclick="closePrivacy()">Close</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+     <!-- FOOTER -->
+    <footer>
+      <div class="container">© 2025 SkyMinds Investments CC — All Rights Reserved</div>
+    </footer>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile menu
+    function toggleMenu(){
+      const nav = document.getElementById('mobileNav');
+      const btn = document.querySelector('.menu-btn');
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      if(nav.style.display === 'block'){
+        nav.style.display = 'none';nav.setAttribute('aria-hidden','true')
+      } else {nav.style.display = 'block';nav.setAttribute('aria-hidden','false')}
+    }
+    function closeMobile(){document.getElementById('mobileNav').style.display='none';document.querySelector('.menu-btn').setAttribute('aria-expanded', 'false');}
+
+    // Modal helpers
+    function openTerms(e){ if(e) e.preventDefault(); const m=document.getElementById('termsModal'); m.style.display='block'; m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closeTerms(){ const m=document.getElementById('termsModal'); m.style.display='none'; m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    function openPrivacy(e){ if(e) e.preventDefault(); const m=document.getElementById('privacyModal'); m.style.display='block'; m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+    function closePrivacy(){ const m=document.getElementById('privacyModal'); m.style.display='none'; m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+
+    // Close modals with Escape or click outside
+window.addEventListener('keydown', function(e){ 
+  if(e.key === 'Escape'){ 
+    closeTerms(); 
+    closePrivacy(); 
+  } 
+});
+
+document.addEventListener('click', function(e){
+  const terms = document.getElementById('termsModal');
+  const privacy = document.getElementById('privacyModal');
+
+  if(terms.style.display === 'block' && !terms.querySelector('.modal-content').contains(e.target) && !e.target.closest('#btnOpenTerms') && !e.target.closest('a[href="#"][onclick*="openTerms"]')){
+    closeTerms();
+  }
+  if(privacy.style.display === 'block' && !privacy.querySelector('.modal-content').contains(e.target) && !e.target.closest('#btnOpenPrivacy') && !e.target.closest('a[href="#"][onclick*="openPrivacy"]')){
+    closePrivacy();
+  }
+});
+
+    // Contact form (placeholder) — replace with your backend endpoint
+    function sendForm(e){
+      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const data = new FormData(form);
+      // Basic validation (already required by HTML)
+      // TODO: replace with real POST to backend / formspree endpoint
+      alert('Thank you, ' + (data.get('name') || 'there') + '! Your message has been received. (Connect a backend to make this functional)');
+      form.reset();
+    }
+
+  </script>
+  
+  <!-- Floating Quick-Action Menu -->
+  <div id="quickMenu">
+    <a href="https://wa.me/264852347158" target="_blank" aria-label="WhatsApp Chat">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <a href="tel:+264852347158" aria-label="Call Us">
+      📞
+    </a>
+    <a href="mailto:skymindsinvestments@gmail.com" aria-label="Email Us">
+      ✉️
+    </a>
+    <a href="#" id="backToTop" onclick="scrollToTop()" aria-label="Back to Top">
+      ⬆️
+    </a>
+  </div>
+
+  <style>
+    #quickMenu {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 2000;
+    }
+    #quickMenu a {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      text-decoration: none;
+      font-size: 24px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    #quickMenu a:hover {
+      transform: scale(1.1);
+      background-color: var(--accent);
+      color: var(--primary);
+    }
+    #quickMenu a img {
+      width: 32px;
+      height: 32px;
+    }
+  </style>
+
+<script>
+  // Reference the Back-to-Top button in the quick menu
+  const backToTopBtn = document.getElementById('backToTop');
+
+  // Show button when scrolling down
+  window.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      backToTopBtn.style.display = 'flex';
+    } else {
+      backToTopBtn.style.display = 'none';
+    }
+  });
+
+  // Scroll smoothly to top when clicked
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Initially hide the button
+  backToTopBtn.style.display = 'none';
+</script>
+
+<!-- Cookie Consent Popup -->
+<div id="cookieConsent">
+  <p>We use cookies to enhance your browsing experience. Do you accept cookies?</p>
+  <div>
+    <button id="acceptCookies">Accept</button>
+    <button id="declineCookies">Decline</button>
+  </div>
+</div>
+
+<style>
+  #cookieConsent {
+    position: fixed;
+    bottom: 24px;
+    left: -350px; /* start off-screen */
+    background: var(--primary);
+    color: #fff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    z-index: 2500;
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: left 0.6s ease, opacity 0.6s ease;
+  }
+  #cookieConsent.show {
+    left: 24px;
+    opacity: 1;
+  }
+  #cookieConsent.hide {
+    left: -350px; /* slide back out */
+    opacity: 0;
+  }
+  #cookieConsent p { margin: 0 0 10px 0; }
+  #cookieConsent button {
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-right: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  #cookieConsent button:hover {
+    transform: scale(1.05);
+    background: #fff;
+    color: var(--primary);
+  }
+</style>
+
+<script>
+  // Show cookie popup after 3 seconds
+  setTimeout(function() {
+    const consent = document.getElementById('cookieConsent');
+    if (!localStorage.getItem('cookieAccepted')) {
+      consent.classList.add('show');
+    }
+  }, 3000);
+
+  function hideCookiePopup() {
+    const consent = document.getElementById('cookieConsent');
+    consent.classList.remove('show');
+    consent.classList.add('hide');
+  }
+
+  // Accept / Decline cookie buttons
+  document.getElementById('acceptCookies').addEventListener('click', function() {
+    localStorage.setItem('cookieAccepted', 'true');
+    hideCookiePopup();
+  });
+
+  document.getElementById('declineCookies').addEventListener('click', function() {
+    localStorage.setItem('cookieAccepted', 'false');
+    hideCookiePopup();
+  });
+</script>
+
+</body>
+</html>
