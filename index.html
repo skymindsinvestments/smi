@@ -6,7 +6,7 @@
   <meta name="description" content="Skyminds Business Advisory — Business development, economic advisory, accounting, investment planning and research based in Windhoek, Namibia.">
   <title>Skyminds Business Advisory | Business Advisory & Economic Consulting Namibia</title>
   <link rel="icon" href="favicon.ico" />
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* -------------------- VARIABLES -------------------- */
     :root{
@@ -31,7 +31,8 @@
     html,body{height:100%}
     body{
       margin:0;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      body{
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background:var(--bg);
       color:#111827;
       -webkit-font-smoothing:antialiased;
@@ -54,6 +55,8 @@
     header{
       width:100%;background:var(--primary);color:#fff;padding:14px 28px;position:fixed;top:0;left:0;z-index:1200;box-shadow:0 6px 18px rgba(2,6,23,0.2);
       display:flex;align-items:center;justify-content:space-between;min-height:96px;gap:12px
+      backdrop-filter: blur(8px);
+background: rgba(11,14,44,0.95);
     }
 
     .brand{display:flex;align-items:center;gap:14px}
@@ -74,20 +77,41 @@
     /* -------------------- HERO -------------------- */
     
       .hero{
-      margin-top:108px; /* header height + spacing */
-      background-image:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80');
-      background-size:cover;background-position:center;padding:120px 0;color:#fff;position:relative;overflow:hidden
+        .hero{
+  margin-top:108px;
+  background: linear-gradient(rgba(5,10,30,0.65), rgba(5,10,30,0.75)),url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+  padding:120px 0;
+  color:#fff;
+}
     }
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,32,58,0.6), rgba(4,32,58,0.6));}
     .hero .container{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
     .hero h1{font-size:44px}
     .hero p{max-width:680px;font-size:18px}
 
-    .btn{display:inline-block;padding:12px 28px;background:var(--accent);color:#071123;font-weight:700;border-radius:8px;box-shadow:0 8px 18px rgba(19,17,13,0.08)}
-    .btn:hover{transform:translateY(-2px)}
+    .btn{
+  display:inline-block;
+  padding:14px 30px;
+  background:var(--accent);
+  color:#0b0e2c;
+  font-weight:700;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+}
 
+.btn:hover{
+  transform: translateY(-3px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+section:not(.hero):not(.legal-section) {
+  border-bottom: 1px solid var(--border);
+}
+      
     /* -------------------- SECTIONS -------------------- */
-    section{padding:64px 0}
+    section{padding:80px 0}
     section .container{padding:0}
 
     h2{font-size:28px;margin-bottom:12px}
@@ -95,14 +119,24 @@
 
     /* Services grid */
     .service-grid{display:grid;gap:24px;margin-top:22px;grid-template-columns:repeat(3,1fr)}
-    .service-box{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:0 6px 22px rgba(8,15,30,0.06)}
-    .service-box h3{font-size:18px;margin-bottom:10px}
-    .service-box ul{padding-left:18px;margin:0;color:var(--muted)}
+    .service-box{
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(2,6,23,0.04);
+  transition: all 0.3s ease;
+}
 
     /* Features */
-    .features-grid{display:grid;gap:20px;grid-template-columns:repeat(4,1fr);margin-top:16px}
-    .feature-box{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(8,15,30,0.04)}
-    .feature-box h3{font-size:16px}
+    .feature-box{
+  background: var(--card);
+  padding: 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.03);
+  transition: all 0.3s ease;
+}
 
     /* About */
     .about p{color:var(--muted);max-width:900px}
@@ -131,7 +165,11 @@
 
     /* Footer */
     footer{background:var(--primary);color:#fff;padding:18px 0;text-align:center;margin-top:26px}
-
+.service-box:hover,
+.feature-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(2,6,23,0.08);
+}
     /* -------------------- RESPONSIVE -------------------- */
     @media (max-width:1100px){
       .features-grid{grid-template-columns:repeat(2,1fr)}
@@ -153,6 +191,19 @@
       .brand .brand-sub{display:none}
     }
 
+      h1 {
+  font-size: 48px;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 30px;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 18px;
+}
   </style>
 </head>
 <body>
