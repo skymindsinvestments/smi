@@ -51,16 +51,34 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:14px 0;
+  gap:16px;
 }
 
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{height:38px;max-height:40px;width:auto;display:block;object-fit:contain}
-.brand{display:flex;align-items:center;gap:12px;max-width:70%}
-.header-inner{overflow:hidden}
-.brand-text{font-weight:700;font-size:14px}
-.brand-sub{font-size:11px;opacity:0.8}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-shrink:0;
+  max-width:60%;
+}
 
-.nav{display:flex;gap:18px}
+.brand img{
+  height:38px;
+  width:auto;
+  max-width:140px;
+  object-fit:contain;
+  display:block;
+}
+
+.brand-text{font-weight:700;font-size:14px;white-space:nowrap}
+.brand-sub{font-size:11px;opacity:0.8;white-space:nowrap}
+
+.nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:nowrap;
+}
+
 .nav a{
   color:#fff;
   font-weight:600;
@@ -69,9 +87,10 @@ header{
   border-radius:8px;
   text-decoration:none;
 }
+
 .nav a:hover{background:rgba(255,255,255,0.08)}
 
-.menu-btn{display:none;background:none;border:0;color:#fff;font-size:28px}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:28px;flex-shrink:0}
 
 /* HERO */
 .hero{
